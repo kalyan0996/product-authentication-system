@@ -1,111 +1,117 @@
-# Fake Product Identification Blockchain
+# Product Authentication System
 
-A blockchain-based fake product identification system using QR codes for verifying genuine products and preventing counterfeiting.
+A modern product authentication platform that helps manufacturers and customers verify genuine products using QR code-based verification, secure product registration, and real-time authenticity validation.
 
-**GitHub Repository:** https://github.com/kalyan0996/fake-product-identification-blockchain.git
-
----
-
-## 📌 Project Overview
-
-This project provides a secure solution for manufacturers and customers to verify authentic products using:
-
-- **QR Code Verification** — Scan QR codes to instantly verify product authenticity
-- **Blockchain Authentication** — Immutable product records on blockchain
-- **Product Registration** — Manufacturers register products in the system
-- **Real-time Detection** — Detect and flag counterfeit products
-- **Manufacturer Dashboard** — Secure login and product management
-- **Customer Verification** — Easy verification interface for end users
+**GitHub Repository:** https://github.com/kalyan0996/product-authentication-system
 
 ---
 
-## 🛠 Tech Stack
+# 📌 Project Overview
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React.js, Nginx |
-| **Backend** | Node.js, Express.js |
-| **Database** | MongoDB |
-| **Blockchain** | Ethereum (Smart Contracts) |
-| **Containerization** | Docker, Docker Compose |
-| **Deployment** | AWS EC2, Nginx Reverse Proxy |
+The Product Authentication System provides a reliable solution for combating counterfeit products by enabling manufacturers to register products and customers to verify authenticity through QR codes.
 
----
+### Key Features
 
-## ⛓️ Blockchain Technology
-
-This project uses **Ethereum** as the blockchain backend for:
-
-- **Immutable Product Records** — Product metadata stored on Ethereum smart contracts
-- **Tamper-Proof Verification** — QR code hashes verified against blockchain
-- **Transparent Authentication** — Customers can trace product history on-chain
-- **Smart Contract Validation** — Automated verification logic through contracts
-- **Decentralized Trust** — No single point of failure for product authentication
-
-### How Blockchain Works in This Project:
-
-1. Manufacturer registers a product with unique identifier
-2. Product details hashed and stored on Ethereum smart contract
-3. QR code generated with product hash
-4. Customer scans QR code
-5. Backend verifies hash against blockchain records
-6. Authentic or counterfeit status displayed instantly
+* QR Code-Based Product Verification
+* Secure Product Registration and Management
+* Real-Time Authenticity Validation
+* Manufacturer Dashboard
+* Customer Verification Portal
+* Product Tracking and Monitoring
+* Counterfeit Detection and Prevention
 
 ---
 
-## 📂 Project Structure
+# 🛠 Technology Stack
 
-```
-fake-product-identification-blockchain/
+| Layer            | Technology                   |
+| ---------------- | ---------------------------- |
+| Frontend         | React.js, Nginx              |
+| Backend          | Node.js, Express.js          |
+| Database         | MongoDB                      |
+| Authentication   | JWT                          |
+| Containerization | Docker, Docker Compose       |
+| Deployment       | AWS EC2, Nginx Reverse Proxy |
+| Orchestration    | Kubernetes                   |
+
+---
+
+# 📂 Project Structure
+
+```text
+product-authentication-system/
 │
-├── backend/                    # Node.js Express API
-│   ├── controllers/            # Route controllers
-│   ├── middleware/             # Authentication & validation
-│   ├── models/                 # MongoDB schemas
-│   ├── routes/                 # API endpoints
-│   ├── services/               # Business logic
+├── backend/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
 │   ├── package.json
 │   └── server.js
 │
-├── frontend/                   # React.js application
+├── frontend/
 │   ├── src/
 │   ├── public/
 │   ├── package.json
-│   └── build/                  # Production build
+│   └── build/
 │
-├── docker/                     # Docker configuration
-│   ├── Dockerfile.backend      # Backend image definition
-│   ├── Dockerfile.frontend     # Frontend image definition
-│   └── docker-compose.yml      # Multi-container orchestration
+├── docker/
+│   ├── Dockerfile.backend
+│   ├── Dockerfile.frontend
+│   └── docker-compose.yml
 │
-├── k8s/                        # Kubernetes deployment files
-├── monitoring/                 # Monitoring configuration
-├── nginx.conf                  # Nginx reverse proxy config
-└── README.md
+├── k8s/
+├── monitoring/
+├── nginx.conf
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## ☁️ AWS EC2 Deployment
+# 🚀 Core Workflow
 
-### Recommended Configuration
+### Manufacturer
 
-| Component | Specification |
-|---|---|
-| OS | Ubuntu 22.04 LTS |
-| Instance Type | t2.medium or higher |
-| Storage | 20GB+ EBS |
+1. Create an account and log in.
+2. Register product details.
+3. Generate a unique QR code for the product.
+4. Manage registered products from the dashboard.
 
-### Security Group Rules
+### Customer
 
-| Type | Port | Source |
-|---|---|---|
-| SSH | 22 | Your IP |
-| HTTP | 3000 | 0.0.0.0/0 |
-| Custom TCP | 5000 | 0.0.0.0/0 |
-| Custom TCP | 27017 | Internal only |
+1. Scan the QR code on a product.
+2. Submit verification request.
+3. System validates the product record.
+4. Product authenticity status is displayed instantly.
 
-### Connect to EC2
+---
+
+# ☁️ AWS EC2 Deployment
+
+## Recommended Configuration
+
+| Component        | Specification       |
+| ---------------- | ------------------- |
+| Operating System | Ubuntu 22.04 LTS    |
+| Instance Type    | t2.medium or higher |
+| Storage          | 20GB+ EBS           |
+
+---
+
+## Security Group Rules
+
+| Type    | Port  | Source        |
+| ------- | ----- | ------------- |
+| SSH     | 22    | Your IP       |
+| HTTP    | 3000  | 0.0.0.0/0     |
+| API     | 5000  | 0.0.0.0/0     |
+| MongoDB | 27017 | Internal Only |
+
+---
+
+## Connect to EC2
 
 ```bash
 ssh -i your-key.pem ubuntu@YOUR_PUBLIC_IP
@@ -113,223 +119,217 @@ ssh -i your-key.pem ubuntu@YOUR_PUBLIC_IP
 
 ---
 
-## 🚀 Quick Start
+# 🚀 Quick Start
 
-### 1. Clone Repository
+## Clone Repository
 
 ```bash
-git clone https://github.com/kalyan0996/fake-product-identification-blockchain.git
-cd fake-product-identification-blockchain
+git clone https://github.com/kalyan0996/product-authentication-system.git
+cd product-authentication-system
 ```
 
-### 2. Install Docker
+## Install Docker
 
 ```bash
 sudo apt update -y
 sudo apt install docker.io docker-compose -y
+
 sudo systemctl start docker
 sudo systemctl enable docker
+
 sudo usermod -aG docker ubuntu
 newgrp docker
+
 docker --version
 ```
 
-### 3. Deploy with Docker Compose
+---
+
+## Deploy Application
 
 ```bash
 cd docker
+
 docker compose up -d --build
 ```
 
-### 4. Verify Containers
+---
+
+## Verify Containers
 
 ```bash
 docker ps
 ```
 
-Expected output:
-```
-docker-frontend   Up   0.0.0.0:3000->80/tcp
-docker-backend    Up   0.0.0.0:5000->5000/tcp
-docker-mongo      Up   0.0.0.0:27017->27017/tcp
-```
+Expected containers:
 
----
-
-## 🌐 Access Application
-
-| Component | URL |
-|---|---|
-| Frontend (Web App) | `http://YOUR_PUBLIC_IP:3000` |
-| Backend API | `http://YOUR_PUBLIC_IP:5000` |
-| MongoDB | `mongodb://YOUR_PUBLIC_IP:27017` |
-
-### Example
-```
-http://13.232.150.219:3000
+```text
+frontend
+backend
+mongodb
 ```
 
 ---
 
-## 🔑 Default Credentials
+# 🌐 Application Access
 
-| Field | Value |
-|---|---|
-| Email | `demo@product.app` |
-| Password | `Demo1234!` |
+| Component   | URL                            |
+| ----------- | ------------------------------ |
+| Frontend    | http://YOUR_PUBLIC_IP:3000     |
+| Backend API | http://YOUR_PUBLIC_IP:5000     |
+| MongoDB     | mongodb://YOUR_PUBLIC_IP:27017 |
 
 ---
 
-## 🧪 Test Backend API
+# 🔐 Authentication
+
+The application uses:
+
+* JWT Authentication
+* Password Hashing (bcrypt)
+* Protected API Routes
+* Role-Based Access Control
+
+---
+
+# 🧪 API Testing
 
 ```bash
 curl -X POST http://localhost:5000/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"demo@product.app","password":"Demo1234!"}'
-```
-
-Expected response:
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": {
-    "id": "...",
-    "name": "Demo Manufacturer",
-    "email": "demo@product.app"
-  }
-}
+-H "Content-Type: application/json" \
+-d '{
+"email":"demo@product.app",
+"password":"Demo1234!"
+}'
 ```
 
 ---
 
-## ❌ Common Issues & Solutions
+# ⚙️ Environment Variables
 
-### Issue: `permission denied while trying to connect to Docker daemon`
-
-**Solution:**
-```bash
-sudo usermod -aG docker ubuntu
-newgrp docker
-```
-
-### Issue: `COPY failed: no source files were specified`
-
-**Solution:** Ensure build context is correct in docker-compose.yml:
-```yaml
-backend:
-  build:
-    context: ..
-    dockerfile: docker/Dockerfile.backend
-```
-
-### Issue: Frontend can't connect to backend API
-
-**Solution:** Verify nginx.conf has proxy configuration:
-```nginx
-location /api/ {
-    proxy_pass http://docker-backend:5000/api/;
-    proxy_set_header Host $host;
-}
-```
-
-### Issue: MongoDB connection failed
-
-**Solution:** Check mongo container is running:
-```bash
-docker logs docker-mongo
-```
-
----
-
-## 📊 CI/CD Pipeline
-
-This project uses **GitLab CI/CD** for automated deployment:
-
-1. **Build Stage** — Docker images built for frontend and backend
-2. **Test Stage** — Run automated tests
-3. **Push Stage** — Push images to Docker Hub
-4. **Deploy Stage** — Pull latest images and restart containers
-
-Pipeline file: `.gitlab-ci.yml`
-
----
-
-## 🔒 Security Features
-
-- JWT-based authentication
-- Password hashing with bcrypt
-- CORS configuration
-- MongoDB URI environment variables
-- Docker secrets management
-- Nginx reverse proxy security headers
-
----
-
-## 📝 Environment Variables
-
-Create `.env` file in project root:
+Create a `.env` file:
 
 ```env
-MONGODB_URI=mongodb://mongo:27017/fake-product-db
+MONGODB_URI=mongodb://mongo:27017/product-authentication-db
+
 JWT_SECRET=your_jwt_secret_key
+
 PORT=5000
+
 NODE_ENV=production
 ```
 
 ---
 
-## ✅ Features
+# 📊 CI/CD Pipeline
 
-- ✅ Manufacturer account registration and login
-- ✅ Product registration with blockchain verification
-- ✅ QR code generation for each product
-- ✅ Customer product verification interface
-- ✅ Real-time counterfeit detection
-- ✅ Product history tracking on blockchain
-- ✅ Responsive web interface
-- ✅ Docker containerization
-- ✅ Automated CI/CD pipeline
-- ✅ MongoDB data persistence
-- ✅ Nginx reverse proxy
-- ✅ JWT authentication
+The project supports automated deployment workflows for:
+
+* Application Build
+* Testing
+* Container Image Creation
+* Deployment Automation
+* Infrastructure Updates
 
 ---
 
-## 🤝 Contributing
+# 🔒 Security Features
 
-Contributions are welcome! Please:
+* JWT Authentication
+* Password Encryption with bcrypt
+* Secure API Communication
+* Environment Variable Protection
+* Dockerized Deployment
+* Reverse Proxy Security Configuration
+
+---
+
+# ❌ Common Issues
+
+## Docker Permission Denied
+
+```bash
+sudo usermod -aG docker ubuntu
+newgrp docker
+```
+
+---
+
+## MongoDB Connection Failed
+
+```bash
+docker logs mongodb
+```
+
+---
+
+## Frontend Cannot Reach Backend
+
+Verify Nginx proxy configuration:
+
+```nginx
+location /api/ {
+    proxy_pass http://backend:5000/api/;
+    proxy_set_header Host $host;
+}
+```
+
+---
+
+# ✅ Features
+
+* Product Registration
+* QR Code Generation
+* Product Verification
+* Manufacturer Dashboard
+* Customer Verification Portal
+* Counterfeit Product Detection
+* MongoDB Data Persistence
+* Docker Containerization
+* Kubernetes Deployment Support
+* Nginx Reverse Proxy
+* JWT Authentication
+* Responsive User Interface
+
+---
+
+# 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+4. Push to your branch
+5. Open a Pull Request
 
 ---
 
-## 📄 License
+# 📄 License
 
-This project is open-source and available under the MIT License.
-
----
-
-## 👨‍💻 Author
-
-**Kalyan**
-
-- GitHub: https://github.com/kalyan0996
-- Repository: https://github.com/kalyan0996/fake-product-identification-blockchain.git
+This project is released under the MIT License.
 
 ---
 
-## 📞 Support
+# 👨‍💻 Author
 
-For issues and questions:
-1. Check the GitHub Issues page
-2. Review error messages in docker logs: `docker logs <container_name>`
-3. Ensure all environment variables are properly set
-4. Verify AWS Security Group rules allow necessary ports
+Kalyan
+
+GitHub: https://github.com/kalyan0996
+
+Repository:
+https://github.com/kalyan0996/product-authentication-system
 
 ---
 
-**Last Updated:** May 2026
+# 📞 Support
+
+For issues and support:
+
+* Review application logs
+* Verify Docker containers are running
+* Check environment variable configuration
+* Validate network and firewall settings
+* Open an issue in the GitHub repository
+
+---
+
+**Last Updated:** June 2026
