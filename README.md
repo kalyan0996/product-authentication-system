@@ -219,19 +219,6 @@ PORT=5000
 NODE_ENV=production
 ```
 
----
-
-# 📊 CI/CD Pipeline
-
-The project supports automated deployment workflows for:
-
-* Application Build
-* Testing
-* Container Image Creation
-* Deployment Automation
-* Infrastructure Updates
-
----
 
 # 🔒 Security Features
 
@@ -242,16 +229,6 @@ The project supports automated deployment workflows for:
 * Dockerized Deployment
 * Reverse Proxy Security Configuration
 
----
-
-# ❌ Common Issues
-
-## Docker Permission Denied
-
-```bash
-sudo usermod -aG docker ubuntu
-newgrp docker
-```
 
 ---
 
